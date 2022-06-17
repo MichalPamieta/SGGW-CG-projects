@@ -1,0 +1,2233 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Projekt2_Pamieta_196099</title><meta name="generator" content="MATLAB 9.8"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-05-25"><meta name="DC.source" content="Projekt2_Pamieta_196099.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1"><i>WARTO&#346;CI POCZ&#260;TKOWE I ZMIENNE POMOCNICZE</i></a></li><li><a href="#2"><i>CZ&#280;&#346;&#262; 1</i></a></li><li><a href="#3">Zadanie 1 A</a></li><li><a href="#4">Zadanie 1 B</a></li><li><a href="#5">Zadanie 1 C</a></li><li><a href="#6">Zadanie 1 D</a></li><li><a href="#7"><i>CZ&#280;&#346;&#262; 2</i></a></li><li><a href="#8">Zadanie 2 A</a></li><li><a href="#9">Zadanie 2 B</a></li><li><a href="#10"><i>FUNKCJE POMOCNICZE</i></a></li></ul></div><h2 id="1"><i>WARTO&#346;CI POCZ&#260;TKOWE I ZMIENNE POMOCNICZE</i></h2><pre class="codeinput"><span class="comment">% rozdzielczo&#347;&#263; obrazka</span>
+X = 640;
+Y = 480;
+
+<span class="comment">% rozmiar piksela</span>
+pixel = 0.1;
+
+<span class="comment">% wierzcho&#322;ki ostros&#322;upa (o kwadratowej podstawie)</span>
+r1 = [20;20;20;1]; <span class="comment">% naro&#380;nik C</span>
+r2 = [20;-20;20;1]; <span class="comment">% naro&#380;nik B</span>
+r3 = [-20;-20;20;1]; <span class="comment">% naro&#380;nik A</span>
+r4 = [-20;20;20;1]; <span class="comment">% naro&#380;nik D</span>
+r5 = [0;0;10;1]; <span class="comment">% wierzcho&#322;ek E</span>
+
+<span class="comment">% poziom o&#347;wietlenia t&#322;a</span>
+Amb = 10;
+
+<span class="comment">% nat&#281;&#380;enie &#378;r&oacute;d&#322;a &#347;wiat&#322;a</span>
+Int = 245;
+
+<span class="comment">% wsp&oacute;&#322;czynnik alfa</span>
+alfa = 0.001;
+
+<span class="comment">% tr&oacute;jk&#261;t ABE (&#347;ciana ostros&#322;upa 1)</span>
+Ish1 = inside(r3,r2,r5, Y, X, pixel, pixel);
+[A1,B1,C1,D1] = plane(r3,r2,r5);
+nA = [A1;B1;C1]/norm([A1;B1;C1]);
+
+<span class="comment">% tr&oacute;jk&#261;t BCE (&#347;ciana ostros&#322;upa 2)</span>
+Ish2 = inside(r2,r1,r5, Y, X, pixel, pixel);
+[A2,B2,C2,D2] = plane(r2,r1,r5);
+nB = [A2;B2;C2]/norm([A2;B2;C2]);
+
+<span class="comment">% tr&oacute;jk&#261;t CDE (&#347;ciana ostros&#322;upa 3)</span>
+Ish3 = inside(r1,r4,r5, Y, X, pixel, pixel);
+[A3,B3,C3,D3] = plane(r1,r4,r5);
+nC = [A3;B3;C3]/norm([A3;B3;C3]);
+
+<span class="comment">% tr&oacute;jk&#261;t DAE (&#347;ciana ostros&#322;upa 4)</span>
+Ish4 = inside(r4,r3,r5, Y, X, pixel, pixel);
+[A4,B4,C4,D4] = plane(r4,r3,r5);
+nD = [A4;B4;C4]/norm([A4;B4;C4]);
+</pre><h2 id="2"><i>CZ&#280;&#346;&#262; 1</i></h2><h2 id="3">Zadanie 1 A</h2><p>Model o&#347;wietlenia Lamberta z pojedynczym punktowym &#378;r&oacute;d&#322;em &#347;wiat&#322;a w punkcie o wsp&oacute;&#322;rz&#281;dnych [10,0,0].</p><pre class="codeinput">Im1 = uint8(zeros(Y,X));
+lamp = [10;0;0];
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(1); imshow(Im1);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Lamberta dla Amb=10, Int=245 i lamp=[10;0;0]'</span>);
+</pre><img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_01.png" alt=""> <h2 id="4">Zadanie 1 B</h2><p>Model o&#347;wietlenia Lamberta z pojedynczym punktowym &#378;r&oacute;d&#322;em &#347;wiat&#322;a w punkcie o wsp&oacute;&#322;rz&#281;dnych [-5,-5,0].</p><pre class="codeinput">Im2 = uint8(zeros(Y,X));
+lamp = [-5;-5;0];
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(2); imshow(Im2);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Lamberta dla Amb=10, Int=245 i lamp=[-5;-5;0]'</span>);
+</pre><img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_02.png" alt=""> <h2 id="5">Zadanie 1 C</h2><p>Model o&#347;wietlenia Phonga z pojedynczym punktowym &#378;r&oacute;d&#322;em &#347;wiat&#322;a w punkcie o wsp&oacute;&#322;rz&#281;dnych [10,0,0], wirtualnym okiem obserwatora w punkcie o wsp&oacute;&#322;rz&#281;dnych [65,0,0] oraz warto&#347;ci parametru m=15.</p><pre class="codeinput">Im3 = uint8(zeros(Y,X));
+lamp = [10;0;0];
+eye = [65;0;0];
+m = 15;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im3(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im3(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im3(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im3(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(3); imshow(Im3);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=15'</span>);
+
+<span class="comment">% dodatkowe przyk&#322;ady dla r&oacute;&#380;nych warto&#347;ci parametru m (1. m = 5, 2. m = 25, 3. m = 55)</span>
+
+Im5 = uint8(zeros(Y,X));
+m = 5;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im5(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im5(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im5(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im5(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(5); imshow(Im5);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=5'</span>);
+
+Im7 = uint8(zeros(Y,X));
+m = 25;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im7(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im7(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im7(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im7(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(7); imshow(Im7);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=25'</span>);
+
+Im9 = uint8(zeros(Y,X));
+m = 55;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im9(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im9(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im9(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im9(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(9); imshow(Im9);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=55'</span>);
+</pre><img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_03.png" alt=""> <img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_04.png" alt=""> <img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_05.png" alt=""> <img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_06.png" alt=""> <h2 id="6">Zadanie 1 D</h2><pre class="codeinput">Im4 = uint8(zeros(Y,X));
+lamp = [-5;-5;0];
+eye = [65;0;0];
+m = 15;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im4(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im4(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im4(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im4(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(4);imshow(Im4);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=15'</span>);
+
+<span class="comment">% dodatkowe przyk&#322;ady dla r&oacute;&#380;nych warto&#347;ci parametru m (1. m = 5, 2. m = 25, 3. m = 55)</span>
+
+Im6 = uint8(zeros(Y,X));
+m = 5;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im6(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im6(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im6(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im6(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(6); imshow(Im6);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=5'</span>);
+
+Im8 = uint8(zeros(Y,X));
+m = 25;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im8(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im8(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im8(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im8(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(8); imshow(Im8);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=25'</span>);
+
+Im10 = uint8(zeros(Y,X));
+m = 55;
+
+<span class="keyword">for</span> i = 1:X
+    <span class="keyword">for</span> j = 1:Y
+        <span class="keyword">if</span> Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im10(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im10(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im10(j,i) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l;
+            <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp;
+            <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+            Im10(j,i) = temp;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+figure(10); imshow(Im10);
+title(<span class="string">'Ostros&#322;up z u&#380;ytym modelem o&#347;wietlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=55'</span>);
+</pre><img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_07.png" alt=""> <img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_08.png" alt=""> <img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_09.png" alt=""> <img vspace="5" hspace="5" src="Projekt2_Pamieta_196099_10.png" alt=""> <h2 id="7"><i>CZ&#280;&#346;&#262; 2</i></h2><h2 id="8">Zadanie 2 A</h2><p>Cyfrowa animacja z ostros&#322;upem i modelem o&#347;wietlenia Lamberta z poruszaj&#261;cym si&#281; &#378;r&oacute;d&#322;em &#347;wiat&#322;a</p><pre class="codeinput">Im5 = uint8(zeros(Y,X));
+m = 15;
+v = VideoWriter(<span class="string">'Projekt2_Pami&#281;ta_196099_zad2A_Lambert.avi'</span>);
+open(v);
+
+<span class="keyword">for</span> k = 1:3
+    <span class="keyword">for</span> t = 0:99
+        lampx = 10*cos(2*pi*t*0.01);
+        lampy = 10*sin(2*pi*t*0.01);
+        lamp = [lampx;lampy;0];
+
+        <span class="keyword">for</span> i = 1:X
+            <span class="keyword">for</span> j = 1:Y
+                <span class="keyword">if</span> Ish1(j,i)==255
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nA'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                <span class="keyword">end</span>
+                <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nB'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                <span class="keyword">end</span>
+                <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nC'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                <span class="keyword">end</span>
+                <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nD'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        writeVideo(v, Im5);
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+close(v);
+</pre><h2 id="9">Zadanie 2 B</h2><p>Cyfrowa animacja z ostros&#322;upem i modelem o&#347;wietlenia Phonga z poruszaj&#261;cym si&#281; &#378;r&oacute;d&#322;em &#347;wiat&#322;a oraz poruszaj&#261;cym si&#281; wirtualnym okiem obserwatora.</p><pre class="codeinput">Im6 = uint8(zeros(Y,X));
+m = 15;
+v = VideoWriter(<span class="string">'Projekt2_Pami&#281;ta_196099_zad2B_Phong.avi'</span>);
+open(v);
+
+<span class="keyword">for</span> k = 1:3
+    <span class="keyword">for</span> t = 0:99
+        eyex = 60+5*cos(2*pi*t*0.01);
+        eyey = 10*sin(2*pi*t*0.01);
+        eye = [eyex;eyey;0];
+        lampx = 10*cos(2*pi*t*0.01);
+        lampy = 10*sin(2*pi*t*0.01);
+        lamp = [lampx;lampy;0];
+
+        <span class="keyword">for</span> i = 1:X
+            <span class="keyword">for</span> j = 1:Y
+                <span class="keyword">if</span> Ish1(j,i)==255
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nA'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nA'*l)*nA-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp;
+                    <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    <span class="keyword">if</span> temp &gt; 255
+                        temp = 255;
+                    <span class="keyword">end</span>
+                    Im6(j,i) = temp;
+                <span class="keyword">end</span>
+                <span class="keyword">if</span> Ish2(j,i)==255 &amp;&amp; Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nB'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nB'*l)*nB-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp;
+                    <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+                    Im6(j,i) = temp;
+                <span class="keyword">end</span>
+                <span class="keyword">if</span> Ish3(j,i)==255 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nC'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nC'*l)*nC-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp;
+                    <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+                    Im6(j,i) = temp;
+                <span class="keyword">end</span>
+                <span class="keyword">if</span> Ish4(j,i)==255 &amp;&amp; Ish3(j,i) == 0 &amp;&amp; Ish2(j,i) == 0 &amp;&amp; Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nD'*l;
+                    <span class="keyword">if</span> cs &lt; 0 cs = 0; <span class="keyword">end</span>
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nD'*l)*nD-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp;
+                    <span class="keyword">if</span> cs1 &lt; 0 cs1 = 0; <span class="keyword">end</span>
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    <span class="keyword">if</span> temp &gt; 255 temp = 255; <span class="keyword">end</span>
+                    Im6(j,i) = temp;
+                <span class="keyword">end</span>
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+        writeVideo(v, Im6);
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+close(v);
+</pre><h2 id="10"><i>FUNKCJE POMOCNICZE</i></h2><pre class="codeinput"><span class="keyword">function</span> Im = inside(r1,r2,r3,m,n,dy,dx)
+x1=r1(1); y1=r1(2);
+x2=r2(1); y2=r2(2);
+x3=r3(1); y3=r3(2);
+
+A1 = y3-y2; B1 = x2-x3; C1=y2*(x3-x2)-x2*(y3-y2);
+A2 = y3-y1; B2 = x1-x3; C2=y1*(x3-x1)-x1*(y3-y1);
+A3 = y1-y2; B3 = x2-x1; C3=y2*(x1-x2)-x2*(y1-y2);
+
+Im = uint8(zeros(m,n));
+<span class="keyword">for</span> i = 1:m
+    y = (m/2-i)*dy;
+    <span class="keyword">for</span> j = 1:n
+        x=(j-n/2)*dx;
+        vis = test(x,y,x1,y1,x2,y2,x3,y3,A1,B1,C1,A2,B2,C2,A3,B3,C3);
+        <span class="keyword">if</span> vis&gt;0
+            Im(i,j)=255;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> [A,B,C,D] = plane(p1,p2,p3)
+A = det([p1(2),p1(3),1;
+    p2(2),p2(3),1;
+    p3(2),p3(3),1]);
+
+B = -det([p1(1),p1(3),1;
+    p2(1),p2(3),1;
+    p3(1),p3(3),1]);
+
+C = det([p1(1),p1(2),1;
+    p2(1),p2(2),1;
+    p3(1),p3(2),1]);
+
+D = -det([p1(1),p1(2),p1(3);
+    p2(1),p2(2),p2(3);
+    p3(1),p3(2),p3(3)]);
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> [d,x1,y1,z1] = dist2plane(A,B,C,D, x,y,z,l, m,n)
+d = NaN;
+ro = (A*x + B*y+  C*z + D) / (A*l + B*m + C*n);
+x1 = x - l*ro;
+y1 = y - m*ro;
+z1 = z - n*ro;
+d = sqrt((x-x1)^2 + (y-y1)^2 + (z-z1)^2);
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> v = test(x,y,x1,y1,x2,y2,x3,y3,A1,B1,C1,A2,B2,C2,A3,B3,C3)
+r1=(A1*x1+B1*y1+C1)*(A1*x+B1*y+C1);
+r2=(A2*x2+B2*y2+C2)*(A2*x+B2*y+C2);
+r3=(A3*x3+B3*y3+C3)*(A3*x+B3*y+C3);
+<span class="keyword">if</span> r1&gt;=0 &amp;&amp; r2&gt;=0 &amp;&amp; r3&gt;=0
+    v=1;
+<span class="keyword">else</span>
+    v=0;
+<span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> [x,y] = im2real(m,n,dx,dy,i,j)
+T = [dx,0,-0.5*m*dx;
+    0,-dy,0.5*n*dy;
+    0,0,1];
+vin = [i;j;1];
+vout = T*vin;
+x = vout(1)/vout(3);
+y = vout(2)/vout(3);
+<span class="keyword">end</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% _WARTOŚCI POCZĄTKOWE I ZMIENNE POMOCNICZE_
+
+% rozdzielczość obrazka
+X = 640;
+Y = 480;
+
+% rozmiar piksela
+pixel = 0.1;
+
+% wierzchołki ostrosłupa (o kwadratowej podstawie)
+r1 = [20;20;20;1]; % narożnik C
+r2 = [20;-20;20;1]; % narożnik B
+r3 = [-20;-20;20;1]; % narożnik A
+r4 = [-20;20;20;1]; % narożnik D
+r5 = [0;0;10;1]; % wierzchołek E
+
+% poziom oświetlenia tła
+Amb = 10;
+
+% natężenie źródła światła
+Int = 245;
+
+% współczynnik alfa
+alfa = 0.001;
+
+% trójkąt ABE (ściana ostrosłupa 1)
+Ish1 = inside(r3,r2,r5, Y, X, pixel, pixel);
+[A1,B1,C1,D1] = plane(r3,r2,r5);
+nA = [A1;B1;C1]/norm([A1;B1;C1]);
+
+% trójkąt BCE (ściana ostrosłupa 2)
+Ish2 = inside(r2,r1,r5, Y, X, pixel, pixel);
+[A2,B2,C2,D2] = plane(r2,r1,r5);
+nB = [A2;B2;C2]/norm([A2;B2;C2]);
+
+% trójkąt CDE (ściana ostrosłupa 3)
+Ish3 = inside(r1,r4,r5, Y, X, pixel, pixel);
+[A3,B3,C3,D3] = plane(r1,r4,r5);
+nC = [A3;B3;C3]/norm([A3;B3;C3]);
+
+% trójkąt DAE (ściana ostrosłupa 4)
+Ish4 = inside(r4,r3,r5, Y, X, pixel, pixel);
+[A4,B4,C4,D4] = plane(r4,r3,r5);
+nD = [A4;B4;C4]/norm([A4;B4;C4]);
+
+%% _CZĘŚĆ 1_
+%% Zadanie 1 A
+% Model oświetlenia Lamberta z pojedynczym punktowym źródłem światła
+% w punkcie o współrzędnych [10,0,0].
+
+Im1 = uint8(zeros(Y,X));
+lamp = [10;0;0];
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,pixel,pixel,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            Im1(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+    end
+end
+figure(1); imshow(Im1);
+title('Ostrosłup z użytym modelem oświetlenia Lamberta dla Amb=10, Int=245 i lamp=[10;0;0]');
+
+%% Zadanie 1 B
+% Model oświetlenia Lamberta z pojedynczym punktowym źródłem światła
+% w punkcie o współrzędnych [-5,-5,0].
+
+Im2 = uint8(zeros(Y,X));
+lamp = [-5;-5;0];  
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            Im2(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+        end
+    end
+end
+figure(2); imshow(Im2);
+title('Ostrosłup z użytym modelem oświetlenia Lamberta dla Amb=10, Int=245 i lamp=[-5;-5;0]');
+
+%% Zadanie 1 C
+% Model oświetlenia Phonga z pojedynczym punktowym źródłem światła
+% w punkcie o współrzędnych [10,0,0], wirtualnym okiem obserwatora
+% w punkcie o współrzędnych [65,0,0] oraz wartości parametru m=15.
+
+Im3 = uint8(zeros(Y,X));
+lamp = [10;0;0];
+eye = [65;0;0];
+m = 15; 
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im3(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im3(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im3(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im3(j,i) = temp;
+        end
+    end
+end
+figure(3); imshow(Im3);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=15');
+
+% dodatkowe przykłady dla różnych wartości parametru m (1. m = 5, 2. m = 25, 3. m = 55)
+
+Im5 = uint8(zeros(Y,X));
+m = 5; 
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im5(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im5(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im5(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im5(j,i) = temp;
+        end
+    end
+end
+figure(5); imshow(Im5);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=5');
+
+Im7 = uint8(zeros(Y,X));
+m = 25; 
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im7(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im7(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im7(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im7(j,i) = temp;
+        end
+    end
+end
+figure(7); imshow(Im7);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=25');
+
+Im9 = uint8(zeros(Y,X));
+m = 55; 
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im9(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im9(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im9(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im9(j,i) = temp;
+        end
+    end
+end
+figure(9); imshow(Im9);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[10;0;0], eye=[65;0;0] i m=55');
+
+%% Zadanie 1 D
+
+Im4 = uint8(zeros(Y,X));
+lamp = [-5;-5;0];
+eye = [65;0;0];
+m = 15;
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im4(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im4(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im4(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im4(j,i) = temp;
+        end
+    end
+end
+figure(4);imshow(Im4);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=15');
+
+% dodatkowe przykłady dla różnych wartości parametru m (1. m = 5, 2. m = 25, 3. m = 55)
+
+Im6 = uint8(zeros(Y,X));
+m = 5; 
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im6(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im6(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im6(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im6(j,i) = temp;
+        end
+    end
+end
+figure(6); imshow(Im6);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=5');
+
+Im8 = uint8(zeros(Y,X));
+m = 25; 
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im8(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im8(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im8(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im8(j,i) = temp;
+        end
+    end
+end
+figure(8); imshow(Im8);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=25');
+
+Im10 = uint8(zeros(Y,X));
+m = 55; 
+
+for i = 1:X
+    for j = 1:Y
+        if Ish1(j,i)==255
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nA'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nA'*l)*nA-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im10(j,i) = temp;
+        end
+        if Ish2(j,i)==255 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nB'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nB'*l)*nB-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im10(j,i) = temp;
+        end
+        if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nC'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nC'*l)*nC-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im10(j,i) = temp;
+        end
+        if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+            [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+            [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+            l = [x;y;z]-lamp;
+            dist = norm(l);
+            l = l/dist;
+            cs = nD'*l; 
+            if cs < 0 cs = 0; end
+            temp = Amb+Int*cs/(1+alfa*dist*dist);
+            rp = 2*(nD'*l)*nD-l;
+            rp = rp/norm(rp);
+            vp = [x;y;z]-eye;
+            vp = vp/norm(vp);
+            cs1 = rp'*vp; 
+            if cs1 < 0 cs1 = 0; end
+            temp = temp+(Int/(1+alfa*dist*dist))*(cs1^m);
+            if temp > 255 temp = 255; end
+            Im10(j,i) = temp;
+        end
+    end
+end
+figure(10); imshow(Im10);
+title('Ostrosłup z użytym modelem oświetlenia Phonga dla Amb=10, Int=245, lamp=[-5;-5;0], eye=[65;0;0] i m=55');
+
+%% _CZĘŚĆ 2_
+%% Zadanie 2 A
+% Cyfrowa animacja z ostrosłupem i modelem oświetlenia Lamberta z poruszającym się źródłem światła 
+
+Im5 = uint8(zeros(Y,X));
+m = 15;
+v = VideoWriter('Projekt2_Pamięta_196099_zad2A_Lambert.avi');
+open(v);
+
+for k = 1:3
+    for t = 0:99
+        lampx = 10*cos(2*pi*t*0.01);
+        lampy = 10*sin(2*pi*t*0.01);
+        lamp = [lampx;lampy;0];  
+
+        for i = 1:X
+            for j = 1:Y
+                if Ish1(j,i)==255
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nA'*l; 
+                    if cs < 0 cs = 0; end
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                end
+                if Ish2(j,i)==255 && Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nB'*l; 
+                    if cs < 0 cs = 0; end
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                end
+                if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nC'*l; 
+                    if cs < 0 cs = 0; end
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                end
+                if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nD'*l; 
+                    if cs < 0 cs = 0; end
+                    Im5(j,i) = uint8(Amb+Int*cs/(1+alfa*dist*dist));
+                end
+            end
+        end
+        writeVideo(v, Im5);
+    end
+end
+close(v);
+
+%% Zadanie 2 B
+% Cyfrowa animacja z ostrosłupem i modelem oświetlenia Phonga z poruszającym się źródłem światła
+% oraz poruszającym się wirtualnym okiem obserwatora.
+
+Im6 = uint8(zeros(Y,X));
+m = 15;
+v = VideoWriter('Projekt2_Pamięta_196099_zad2B_Phong.avi');
+open(v);
+
+for k = 1:3
+    for t = 0:99
+        eyex = 60+5*cos(2*pi*t*0.01);
+        eyey = 10*sin(2*pi*t*0.01);
+        eye = [eyex;eyey;0];
+        lampx = 10*cos(2*pi*t*0.01);
+        lampy = 10*sin(2*pi*t*0.01);
+        lamp = [lampx;lampy;0];
+
+        for i = 1:X
+            for j = 1:Y
+                if Ish1(j,i)==255
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A1,B1,C1,D1,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nA'*l; 
+                    if cs < 0 cs = 0; end
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nA'*l)*nA-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp; 
+                    if cs1 < 0 cs1 = 0; end
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    if temp > 255 
+                        temp = 255; 
+                    end
+                    Im6(j,i) = temp;
+                end
+                if Ish2(j,i)==255 && Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A2,B2,C2,D2,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nB'*l; 
+                    if cs < 0 cs = 0; end
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nB'*l)*nB-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp; 
+                    if cs1 < 0 cs1 = 0; end
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    if temp > 255 temp = 255; end
+                    Im6(j,i) = temp;
+                end
+                if Ish3(j,i)==255 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A3,B3,C3,D3,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nC'*l; 
+                    if cs < 0 cs = 0; end
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nC'*l)*nC-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp; 
+                    if cs1 < 0 cs1 = 0; end
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    if temp > 255 temp = 255; end
+                    Im6(j,i) = temp;
+                end
+                if Ish4(j,i)==255 && Ish3(j,i) == 0 && Ish2(j,i) == 0 && Ish1(j,i) == 0
+                    [xx,yy] = im2real(X,Y,0.1,0.1,i,j);
+                    [d,x,y,z] = dist2plane(A4,B4,C4,D4,xx,yy,0,0,0,1);
+                    l = [x;y;z]-lamp;
+                    dist = norm(l);
+                    l = l/dist;
+                    cs = nD'*l; 
+                    if cs < 0 cs = 0; end
+                    temp = Amb+Int*cs/(1+alfa*dist*dist);
+                    rp = 2*(nD'*l)*nD-l;
+                    rp = rp/norm(rp);
+                    vp = [x;y;z]-eye;
+                    vp = vp/norm(vp);
+                    cs1 = rp'*vp; 
+                    if cs1 < 0 cs1 = 0; end
+                    temp = temp + (Int/(1+alfa*dist*dist))*(cs1^m);
+                    if temp > 255 temp = 255; end
+                    Im6(j,i) = temp;
+                end
+            end
+        end
+        writeVideo(v, Im6);
+    end
+end
+close(v);
+
+
+
+%% _FUNKCJE POMOCNICZE_
+function Im = inside(r1,r2,r3,m,n,dy,dx)
+x1=r1(1); y1=r1(2);
+x2=r2(1); y2=r2(2);
+x3=r3(1); y3=r3(2);
+
+A1 = y3-y2; B1 = x2-x3; C1=y2*(x3-x2)-x2*(y3-y2);
+A2 = y3-y1; B2 = x1-x3; C2=y1*(x3-x1)-x1*(y3-y1);
+A3 = y1-y2; B3 = x2-x1; C3=y2*(x1-x2)-x2*(y1-y2);
+
+Im = uint8(zeros(m,n));
+for i = 1:m
+    y = (m/2-i)*dy;
+    for j = 1:n
+        x=(j-n/2)*dx;
+        vis = test(x,y,x1,y1,x2,y2,x3,y3,A1,B1,C1,A2,B2,C2,A3,B3,C3);
+        if vis>0
+            Im(i,j)=255;
+        end
+    end
+end
+end
+
+function [A,B,C,D] = plane(p1,p2,p3)
+A = det([p1(2),p1(3),1;
+    p2(2),p2(3),1;
+    p3(2),p3(3),1]);
+
+B = -det([p1(1),p1(3),1;
+    p2(1),p2(3),1;
+    p3(1),p3(3),1]);
+
+C = det([p1(1),p1(2),1;
+    p2(1),p2(2),1;
+    p3(1),p3(2),1]);
+
+D = -det([p1(1),p1(2),p1(3);
+    p2(1),p2(2),p2(3);
+    p3(1),p3(2),p3(3)]);
+end
+
+function [d,x1,y1,z1] = dist2plane(A,B,C,D, x,y,z,l, m,n)
+d = NaN;
+ro = (A*x + B*y+  C*z + D) / (A*l + B*m + C*n);
+x1 = x - l*ro;
+y1 = y - m*ro;
+z1 = z - n*ro;
+d = sqrt((x-x1)^2 + (y-y1)^2 + (z-z1)^2);
+end
+
+function v = test(x,y,x1,y1,x2,y2,x3,y3,A1,B1,C1,A2,B2,C2,A3,B3,C3)
+r1=(A1*x1+B1*y1+C1)*(A1*x+B1*y+C1);
+r2=(A2*x2+B2*y2+C2)*(A2*x+B2*y+C2);
+r3=(A3*x3+B3*y3+C3)*(A3*x+B3*y+C3);
+if r1>=0 && r2>=0 && r3>=0
+    v=1;
+else
+    v=0;
+end
+end
+
+function [x,y] = im2real(m,n,dx,dy,i,j)
+T = [dx,0,-0.5*m*dx;
+    0,-dy,0.5*n*dy;
+    0,0,1];
+vin = [i;j;1];
+vout = T*vin;
+x = vout(1)/vout(3);
+y = vout(2)/vout(3);
+end
+##### SOURCE END #####
+--></body></html>
